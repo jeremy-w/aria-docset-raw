@@ -1,0 +1,27 @@
+#!/usr/bin/env fish
+set -l BASE ARIA.docset/Contents/Resources/Documents
+set -l IDXROOT $BASE/developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
+
+# We will index only content under ARIA.
+# Each file should have some hit; if nothing else fits, use Guide.
+
+# Expecting mainly Roles, Attributes, and Properties. Except Role does not exist in Dashland, so probably going to use Type.
+# Attributes often have a list of valid Values.
+# They might also have an ARIAMixin API section linking out to the HTML docs.
+
+# Do not index Section items.
+
+# Initialize the DB if not yet present.
+set -l DB $BASE/docSet.dsidx
+if test ! -e $DB
+    sqlite3 $DB 'CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);
+CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);
+'
+end
+
+# Add TOC links as we index each file.
+# TODO: Find headers and inject before each an anchor like: <a class="dashAnchor" name="//apple_ref/Section/Main%20root"></a>
+# TODO: Find dl lists in Attributes sections and inject in each dt an anchor like: <a class="dashAnchor" name="//apple_ref/Attribute/alt"></a>
+# TODO: Add each file and relevant anchors via: INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES ('name', 'type', 'path');
+# Relevant anchors: sections no, attributes and such yes.
+# If no more appropriate flavor (neither role (Type) nor attribute (Attribute)), then enter the whole page as a Guide.

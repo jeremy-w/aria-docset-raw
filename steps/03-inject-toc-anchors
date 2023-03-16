@@ -1,0 +1,19 @@
+#!/usr/bin/env fish
+# Injects TOC anchors for later indexing.
+set -l BASE ARIA.docset/Contents/Resources/Documents
+set -l TOCROOT $BASE/developer.mozilla.org/en-US/docs
+
+# Note that TOCROOT is broader than the content we intend to index.
+# The crawl included stuff outside the core ARIA folder; if the user clicks to one of those files, we want the sidebar to help them navigate it, but since this docset's focus is ARIA, we do not intend to index those other files.
+
+# Intention:
+# - Every h2 should be marked as a Section, unless it's <h2 class="document-toc-heading">, which we don't show. (I think - needs testing to see if that catches too many.)
+# - Within the Accessibility/ARIA tree, we need to be more specific to be able to link to content inside the page:
+#   - Within Attributes/: Values as Value, ARIAMixin API? as Mixin, Associated roles as Type? Provider?
+#   - Within Roles/: Keyboard Interactions? as Command; Associated roles, states, properties (eg menuitem has both)
+
+# Example attribute:
+# <dt id="download"><a class="dashAnchor" name="//apple_ref/Attribute/download"></a><a id="attr-download" class="inline-block" href="#attr-download"><b><code>download</code></b></a></dt>
+
+# Example section:
+# <section aria-labelledby="try_it"><a class="dashAnchor" name="//apple_ref/Section/Try%20it"></a><h2 id="try_it"><a href="#try_it">Try it</a></h2>
