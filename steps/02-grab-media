@@ -9,12 +9,14 @@ set -l CSS $BASE/developer.mozilla.org/static/css/main.*.css
 set -l files (grep -Eo 'https://developer.mozilla.org/static/media/[^)]+' $CSS | sort -u)
 
 # Download all the files into place.
+mkdir -p $BASE/developer.mozilla.org/static/media
 for file in $files
     # Turn https://developer.mozilla.org/etc into developer.mozilla.org/etc
     set -l path $BASE/(echo $file | cut -c9-)
-    echo "would download $file to $path"
-    #curl -L -o $path $file
+    curl --silent -L -o $path $file
 end
 
 # Rewrite all the URLs to be relative to our mirrored CSS.
-#sed -i -e "s,https://developer.mozilla.org/static/media/,../media,g" $CSS
+# This weird business with |empty| is so autoformatting doesn't drop the important empty argument to -i.
+set -l empty
+sed -i "$empty" -e "s,https://developer.mozilla.org/static/media/,../media/,g" $CSS
