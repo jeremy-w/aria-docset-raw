@@ -1,0 +1,31 @@
+#!/usr/bin/env fish
+echo "scaffolding docset"
+
+mkdir -p ARIA.docset/Contents/Resources/Documents/
+
+echo '<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>ARIA</string>
+	<key>CFBundleName</key>
+	<string>ARIA</string>
+	<key>DocSetPlatformFamily</key>
+	<string>ARIA</string>
+	<key>isDashDocset</key>
+	<true/>
+	<key>dashIndexFilePath</key>
+	<string>developer.mozilla.org/en-US/docs/ARIA/ARIA_Techniques.html</string>
+	<key>DashDocSetFallbackURL</key>
+	<string>https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/</string>
+</dict>
+</plist>
+' >ARIA.docset/Contents/Info.plist
+
+echo 'MDN content: Portions of this content are ©1998–2023 by individual mozilla.org contributors. Content available under a Creative Commons license. Specifically CC-BY-SA 2.5 or later. Code samples are either CC0 or MIT-licensed, and as of March 16 2023, there'\''s no way to tell which with their new system.
+
+Docset icon: derived from one by Mike Gifford and licensed under CC-BY-SA 2.0: https://www.flickr.com/photos/mgifford/15936986541/in/photostream/
+' >ARIA.docset/Contents/Resources/LICENSE
+
+cp icon.png ARIA.docset/icon.png

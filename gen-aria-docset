@@ -1,0 +1,30 @@
+#!/usr/bin/env fish
+argparse -n gen-aria-docset h/help s/step= -- $argv
+
+if set -ql _flag_help
+    echo 'gen-aria-docset [-h|--help] [-s N|--step N]
+
+Generates the ARIA docset.
+
+Arguments
+  -h|--help  Print help and exit.
+  -s N|--step N  Base-0 index of step to start at. Allows skipping steps while working on the docset.
+'
+    exit 0
+end
+
+set -l step 0
+if set -ql _flag_step
+    set step $_flag_step
+end
+
+set -l i 0
+for cmd in steps/*
+    if test $i -lt $step
+        set i (math $i + 1)
+        continue
+    end
+    set i (math $i + 1)
+
+    "$cmd"
+end

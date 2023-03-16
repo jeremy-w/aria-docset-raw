@@ -1,0 +1,7 @@
+# Contributors by commit history
+https://github.com/mdn/content/commits/main/files/en-us/web/accessibility/aria/roles/row_role/index.md
+
+# Original Wiki contributors
+chrisdavidmills
+PickensC
+estelle

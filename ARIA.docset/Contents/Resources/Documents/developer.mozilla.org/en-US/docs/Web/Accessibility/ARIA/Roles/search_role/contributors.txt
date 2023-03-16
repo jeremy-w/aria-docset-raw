@@ -1,0 +1,12 @@
+# Contributors by commit history
+https://github.com/mdn/content/commits/main/files/en-us/web/accessibility/aria/roles/search_role/index.md
+
+# Original Wiki contributors
+mrevan
+syntactic-salt
+NastiaPev
+chrisdavidmills
+estelle
+SphinxKnight
+klaczynski
+ericwbailey

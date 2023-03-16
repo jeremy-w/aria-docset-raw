@@ -1,0 +1,15 @@
+# Contributors by commit history
+https://github.com/mdn/content/commits/main/files/en-us/web/accessibility/aria/roles/banner_role/index.md
+
+# Original Wiki contributors
+seizo3
+chrisdavidmills
+Konrud
+PoziWorld
+ericwbailey
+estelle
+thenoelman
+Dzordzu
+BenoitL
+Sheppy
+hhillen

@@ -1,0 +1,9 @@
+# Contributors by commit history
+https://github.com/mdn/content/commits/main/files/en-us/web/accessibility/aria/roles/main_role/index.md
+
+# Original Wiki contributors
+chrisdavidmills
+lanresmith
+estelle
+ericwbailey
+yatil

@@ -1,0 +1,20 @@
+#!/usr/bin/env fish
+# Download and rewrite media that httrack probably could have grabbed for me, but I don't want to wait another 90 minutes to see if I got it right or not.
+# download static/media/* files used to mark deprecations and such or provide fonts
+
+set -l BASE ARIA.docset/Contents/Resources/Documents
+set -l CSS $BASE/developer.mozilla.org/static/css/main.*.css
+
+# List all the media files we missed.
+set -l files (grep -Eo 'https://developer.mozilla.org/static/media/[^)]+' $CSS | sort -u)
+
+# Download all the files into place.
+for file in $files
+    # Turn https://developer.mozilla.org/etc into developer.mozilla.org/etc
+    set -l path $BASE/(echo $file | cut -c9-)
+    echo "would download $file to $path"
+    #curl -L -o $path $file
+end
+
+# Rewrite all the URLs to be relative to our mirrored CSS.
+#sed -i -e "s,https://developer.mozilla.org/static/media/,../media,g" $CSS

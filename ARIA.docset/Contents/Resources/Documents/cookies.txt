@@ -1,0 +1,9 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+.wikimedia.org	TRUE	/	FALSE	1999999999	GeoIP	US:GA:Decatur:33.77:-84.30:v4
+commons.m.wikimedia.org	TRUE	/	FALSE	1999999999	WMF-Last-Access	16-Mar-2023
+commons.wikimedia.org	TRUE	/	FALSE	1999999999	WMF-Last-Access	16-Mar-2023
+.wikipedia.org	TRUE	/	FALSE	1999999999	WMF-Last-Access-Global	16-Mar-2023
+meta.wikimedia.org	TRUE	/	FALSE	1999999999	WMF-Last-Access	16-Mar-2023
+login.wikimedia.org	TRUE	/	FALSE	1999999999	WMF-Last-Access	16-Mar-2023
+

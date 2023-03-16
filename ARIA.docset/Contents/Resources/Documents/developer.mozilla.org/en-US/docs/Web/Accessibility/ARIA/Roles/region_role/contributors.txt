@@ -1,0 +1,11 @@
+# Contributors by commit history
+https://github.com/mdn/content/commits/main/files/en-us/web/accessibility/aria/roles/region_role/index.md
+
+# Original Wiki contributors
+chrisdavidmills
+frankluongo92
+lanresmith
+deap82
+mfluehr
+estelle
+ericwbailey
